@@ -1,0 +1,98 @@
+﻿@attribute [Authorize]
+@using Microsoft.AspNetCore.Authorization
+
+
+@page "/"
+
+
+<!-- Dashboard Page Title -->
+<h1 class="page-title">Dashboard</h1>
+
+<!-- Welcome Section -->
+<section class="card" aria-labelledby="welcome-title">
+    <h2 id="welcome-title" class="visually-hidden">Welcome Section</h2>
+    <div class="welcome-card">
+        <div class="welcome-text">
+            <span>Welcome </span>
+            <span class="user-email">AHMEDKH7@GMAIL.COM</span>
+        </div>
+        <div class="login-info">
+            <span>Last login: </span>
+            <time datetime="2024-04-15T13:42">4/15/2024 - 01:42 PM</time>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="card news-section" aria-labelledby="news-title">
+    <h2 id="news-title" class="news-title">New Shahin</h2>
+    <div class="news-content">
+        <article class="news-item">
+            <p>You can now fill in the information of the insured in an easy and fast way through the electronic spreadsheet, without the need to use an Excel file.</p>
+            <time datetime="2023-04-07" class="news-date">07 April 2023</time>
+        </article>
+        <article class="news-item">
+            <p>Shahin now allows requesting the cancellation of the insured from the medical insurance policy through your account, stating the reasons and proof of the cancellation correctly.</p>
+            <time datetime="2023-04-04" class="news-date">04 April 2023</time>
+        </article>
+    </div>
+</section>
+
+<!-- Dashboard Grid with Quick Access and Recent Transactions -->
+<div class="dashboard-grid">
+    <!-- Quick Access Section -->
+    <section class="card" aria-labelledby="quick-access-title">
+        <h2 id="quick-access-title">Quick Access</h2>
+        <div class="quick-access-grid">
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Quotations</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Receipts</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Cancelation Requests</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Expired Policies</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Policies Expired Soon</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Valid Policies</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Transactions Section -->
+    <section class="card" aria-labelledby="transactions-title">
+        <div class="transactions-header">
+            <h2 id="transactions-title">Recent Transactions</h2>
+            <button class="date-filter" aria-label="Filter transactions by year">
+                <span>Year</span>
+                <img src="assets/icons/calendar.svg" alt="Calendar icon" aria-hidden="true">
+            </button>
+        </div>
+        <div class="transaction-list">
+            <div class="transaction-item">
+                <time datetime="2024-04-16T08:42" class="transaction-date">2024-04-16 08:42 AM</time>
+                <span class="transaction-type">Login</span>
+            </div>
+            <div class="transaction-item">
+                <time datetime="2024-04-16T08:42" class="transaction-date">2024-04-16 08:42 AM</time>
+                <span class="transaction-type">Login</span>
+            </div>
+            <div class="transaction-item">
+                <time datetime="2024-04-16T08:42" class="transaction-date">2024-04-16 08:42 AM</time>
+                <span class="transaction-type">Login</span>
+            </div>
+        </div>
+    </section>
+</div>

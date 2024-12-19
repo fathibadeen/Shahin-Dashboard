@@ -1,0 +1,86 @@
+:root {
+  
+    --primary-gradient:  linear-gradient(90deg, #4b92ba 0%, #aeb5b7 100%);
+    --text-light: #fff;
+    --text-dark: #000;
+    --bg-light: rgba(255, 255, 255, 0.9);
+    --bg-lighter: rgba(255, 255, 255, 0.92);
+    --bg-gray: rgba(236, 236, 236, 0.6);
+    --shadow: 0 16px 37px 9px rgba(0, 0, 0, 0.25);
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --border-radius-sm: 12px;
+    --border-radius-md: 18px;
+    --border-radius-lg: 26px;
+    --border-radius-xl: 37px;
+}
+
+
+
+
+
+
+
+.quotations-box {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.actions-container {
+    background-color: var(--bg-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xl);
+}
+
+.button-group {
+    display: flex;
+    gap: 24px;
+    margin-bottom: var(--spacing-xl);
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    background: var(--primary-gradient);
+
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.action-button2 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    background-color: #fff;
+    color: var(--text-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.action-button:hover,
+.action-button:focus {
+    opacity: 0.9;
+    outline: none;
+}
+
+.empty-state {
+    background-color: var(--bg-lighter);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-dark);
+}

@@ -1,0 +1,47 @@
+﻿@page "/policies"
+
+<!-- Link the CSS file -->
+<link href="css/pol.css" rel="stylesheet">
+
+<header class="dashboard-header">
+    <h1 class="dashboard-title">Policies</h1>
+</header>
+
+<section class="policies-overview" aria-label="Policy Status Overview">
+    <div class="status-wrapper">
+        <div class="status-container">
+            <!-- Status Grid -->
+            <div class="status-grid" role="tablist">
+                <button class="status-card status-card--active" role="tab" aria-selected="true" aria-controls="valid-policies" id="valid-tab">
+                    <div class="status-icon" aria-hidden="true"></div>
+                    <span class="status-text">Valid Policies (0)</span>
+                </button>
+
+                <button class="status-card" role="tab" aria-selected="false" aria-controls="expiring-policies" id="expiring-tab">
+                    <div class="status-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2f677404f20769676e8d9a43c00f3b8c6743278387c07745847d9e1fa87c3751?placeholderIfAbsent=true&apiKey=453406a16b6a4076a7bffe0d96a90661"
+                             alt="Expiring Policies"
+                             aria-hidden="true"
+                             width="60" height="60">
+                    </div>
+                    <span class="status-text">Policies Expiring Soon (0)</span>
+                </button>
+
+                <button class="status-card" role="tab" aria-selected="false" aria-controls="expired-policies" id="expired-tab">
+                    <div class="status-icon">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5d40a7fc9e982042e4027ffe686d2754e12902319e6f46d149cf1a196903f087?placeholderIfAbsent=true&apiKey=453406a16b6a4076a7bffe0d96a90661"
+                             alt="Expired Policies"
+                             aria-hidden="true"
+                             width="60" height="60">
+                    </div>
+                    <span class="status-text">Expired Policies (0)</span>
+                </button>
+            </div>
+
+            <!-- Empty State Message -->
+            <div class="empty-state" role="status" aria-live="polite">
+                There Is No Policy
+            </div>
+        </div>
+    </div>
+</section>

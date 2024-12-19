@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <nav class="sidebar" aria-label="Main navigation">
+        <div class="nav-menu" role="menubar">
+            <a href="/" class="nav-item active" role="menuitem">
+                <img src="assets/img/dashboard.svg" alt="Dashboard" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="/Companies" class="nav-item" role="menuitem">
+                <img src="assets/img/comp.svg" alt="Companies" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">My Companies</span>
+            </a>
+            <a href="/Policies" class="nav-item" role="menuitem">
+                <img src="assets/img/pol.svg" alt="Policies" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Policies</span>
+            </a>
+            <a href="Requests" class="nav-item" role="menuitem">
+                <img src="assets/img/requests.svg" alt="Cancel Requests" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Cancel Requests</span>
+            </a>
+            <a href="/Quotations" class="nav-item" role="menuitem">
+                <img src="assets/img/quotations.svg" alt="Quotations" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Quotations</span>
+            </a>
+            <a href="Receipts" class="nav-item" role="menuitem">
+                <img src="assets/img/receipts.svg" alt="Receipts" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Receipts</span>
+            </a>
+            <div class="divider" role="separator"></div>
+            <a href="" class="nav-item" role="menuitem">
+                <img src="assets/img/setting.svg" alt="Settings" class="nav-icon" aria-hidden="true">
+                <span class="nav-text">Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        @Body
+    </main>
+</div>

@@ -1,0 +1,113 @@
+﻿@page "/auth"
+
+@using System.ComponentModel.DataAnnotations
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+
+<EditForm Model="loginModel" OnValidSubmit="HandleLogin" FormName="LoginForm">
+    <DataAnnotationsValidator />
+    <div>
+        <label>Username</label>
+        <InputText @bind-Value="loginModel.Username" class="form-control" />
+        <ValidationMessage For="@(() => loginModel.Username)" />
+    </div>
+    <div>
+        <label>Password</label>
+        <InputText @bind-Value="loginModel.Password" class="form-control" type="password" />
+        <ValidationMessage For="@(() => loginModel.Password)" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger mt-3">@errorMessage</div>
+}
+
+@if (isTwoFactorRequired)
+{
+    <EditForm Model="twoFactorModel" OnValidSubmit="HandleTwoFactorLogin">
+        <div>
+            <label>Two-Factor Code</label>
+            <InputText @bind-Value="twoFactorModel.TwoFactorCode" class="form-control" />
+            <ValidationMessage For="@(() => twoFactorModel.TwoFactorCode)" />
+        </div>
+        <button type="submit" class="btn btn-primary">Verify Code</button>
+    </EditForm>
+}
+
+@code {
+    private LoginModel loginModel = new();
+    private TwoFactorModel twoFactorModel = new();
+    private string errorMessage;
+    private bool isTwoFactorRequired;
+
+    // Handle initial login attempt
+    private async Task HandleLogin()
+    {
+        try
+        {
+            var result = await AuthenticationService.AuthAsync(loginModel.Username, loginModel.Password);
+
+            if (result.IsSuccess)
+            {
+                // Redirect to home or dashboard
+                NavigationManager.NavigateTo("/");
+            }
+            else if (result.RequiresTwoFactor)
+            {
+                // Show 2FA form if required
+                isTwoFactorRequired = true;
+            }
+            else
+            {
+                // Display error message
+                errorMessage = result.ErrorMessage ?? "Login failed. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An unexpected error occurred: {ex.Message}";
+        }
+    }
+
+    // Handle two-factor authentication submission
+    private async Task HandleTwoFactorLogin()
+    {
+        try
+        {
+            var result = await AuthenticationService.VerifyTwoFactorCodeAsync(loginModel.Username, twoFactorModel.TwoFactorCode);
+
+            if (result.IsSuccess)
+            {
+                // Redirect to home or dashboard
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                errorMessage = result.ErrorMessage ?? "Invalid 2FA code.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An unexpected error occurred: {ex.Message}";
+        }
+    }
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "Username is required.")]
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Password is required.")]
+        public string Password { get; set; }
+
+    }
+
+    public class TwoFactorModel
+    {
+        [Required(ErrorMessage = "Two-Factor code is required.")]
+        public string TwoFactorCode { get; set; }
+    }
+
+}

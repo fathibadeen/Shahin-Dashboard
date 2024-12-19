@@ -1,0 +1,38 @@
+﻿
+
+@attribute [Authorize]
+@page "/Companies"
+@using BlazorProject.Data
+@using Microsoft.AspNetCore.Authorization
+
+@inject CompanyService CompanyService
+
+<h1>My Companies</h1>
+
+@if (companies == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    @foreach (var company in companies)
+    {
+        <div>
+            <h2>@company.Name</h2>
+            <p>CR: @company.CR</p>
+            <p>Address: @company.Address</p>
+            <p>Email: @company.Email</p>
+            <p>Mobile: @company.MobileNumber</p>
+        </div>
+        <hr />
+    }
+}
+
+@code {
+    private List<Company> companies;
+
+    protected override async Task OnInitializedAsync()
+    {
+        companies = await CompanyService.GetSysCompaniesAsync();
+    }
+}

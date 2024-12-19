@@ -1,0 +1,173 @@
+
+.company-profile {
+    border-radius: 38px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow: hidden;
+    width: 60%;
+    height: 60px;
+    padding: 160px 50px 660px;
+}
+
+:root {
+    --primary-color: #6fb6df;
+    --text-dark: #000000;
+    --text-light: #737373;
+    --bg-light: #f6f6f6;
+    --white: #ffffff;
+    --border-color: #cecece;
+    --shadow: 0 4px 15px 3px rgba(0, 0, 0, 0.25);
+    --sidebar-width: 300px;
+    --transition: all 0.3s ease;
+    /* إعداد الخط الافتراضي */
+    --font-primary: 'Almarai', sans-serif;
+    --font-weight-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold); /* الخط الغامق */
+    line-height: 1.4;
+    color: var(--text-dark);
+    background-color: var(--primary-color);
+    transform: scale(0.75);
+    transform-origin: top right;
+    direction: rtl;
+}
+
+/* تخصيص النصوص */
+h1, h2, h3, h4, h5, h6, p, a, label, button {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.section-title {
+    color: rgba(0, 0, 0, 1);
+    align-self: start;
+    font: 600 15px/1.4 Inter, sans-serif;
+}
+
+.profile-card {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold); /* الخط الغامق */
+    line-height: 1.4;
+    color: var(--text-dark);
+    background-color: var(--primary-color);
+    transform: scale(0.75);
+    transform-origin: top right;
+    direction: rtl;
+}
+
+.info-row {
+    gap: 20px;
+    display: flex;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+}
+
+.info-group {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font-family: Inter, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.4;
+    font: var(--font-primary);
+}
+
+.info-label {
+    font-size: 14px;
+    font-weight: 600;
+    font: var(--font-primary);
+}
+
+.info-value {
+    border-radius: 13px;
+    background-color: rgba(236, 236, 236, 0.6);
+    margin-top: 11px;
+    width: 540px;
+    max-width: 100%;
+    padding: 20px 34px;
+    font: var(--font-primary);
+    overflow: hidden;
+}
+
+.contact-row {
+    display: flex;
+    margin-top: 42px;
+    gap: 26px;
+    font-family: Inter, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.4;
+    flex-wrap: wrap;
+}
+
+.contact-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 0;
+}
+
+.mobile-group {
+    display: flex;
+    margin-top: 52px;
+    width: 540px;
+    max-width: 100%;
+    flex-direction: column;
+    font-family: Inter, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.4;
+}
+
+@media (max-width: 991px) {
+    .company-profile {
+        max-width: 100%;
+        margin-top: 35px;
+        padding: 100px 20px;
+    }
+
+    .profile-card {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        font: var(--font-primary);
+    }
+
+    .info-column {
+        width: 100%;
+        margin: 26px 0 0;
+    }
+
+    .info-value {
+        padding: 0 20px;
+        font: var(--font-primary);
+    }
+
+    .contact-row {
+        margin-top: 20px;
+    }
+
+    .mobile-group {
+        margin-top: 40px;
+    }
+}
